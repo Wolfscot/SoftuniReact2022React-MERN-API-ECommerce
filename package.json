@@ -1,0 +1,19 @@
+{
+  "name": "softunireact2022react-mern-api-ecommerce",
+  "version": "1.0.0",
+  "description": "This project is for the retake exam of Softuni FrontEnd React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wolfscot/SoftuniReact2022React-MERN-API-ECommerce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wolfscot/SoftuniReact2022React-MERN-API-ECommerce/issues"
+  },
+  "homepage": "https://github.com/Wolfscot/SoftuniReact2022React-MERN-API-ECommerce#readme"
+}
