@@ -5,7 +5,12 @@ const userController = require('../controllers/userController.js')
 
 router.post('/register', userController.register)
 
+router.post('/login', userController.login)
 
+router.get('/logout', userController.logout)
 
+router.get('/refresh_token', userController.refreshToken)
+
+router.get('/infofor',  userController.getUser)
 
 module.exports = router
