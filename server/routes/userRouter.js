@@ -1,7 +1,8 @@
 const router = require('express').Router()
-const Users = require('../models/userModel.js')
 
-const userController = require('../controllers/userController.js')
+const auth = require('../middlewares/auth')
+
+const userController = require('../controllers/userController')
 
 router.post('/register', userController.register)
 
@@ -11,6 +12,6 @@ router.get('/logout', userController.logout)
 
 router.get('/refresh_token', userController.refreshToken)
 
-router.get('/infofor',  userController.getUser)
+router.get('/infofor', auth,  userController.getUser)
 
 module.exports = router
