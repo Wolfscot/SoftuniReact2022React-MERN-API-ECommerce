@@ -4,7 +4,7 @@ const Products = require('../models/productModel')
 
 
             // admin rights: create , delete and update category
-const categoryCtrl = {
+const categoryController = {
     getCategories: async(req, res) =>{
         try {
             const categories = await Category.find()
@@ -30,7 +30,10 @@ const categoryCtrl = {
     },
     deleteCategory: async(req, res) =>{
         try {
-            
+            const products = await Products.findOne({category: req.params.id})
+            if(products) return res.status(400).json({
+                msg: "Delete all products in the category."
+            })
 
             await Category.findByIdAndDelete(req.params.id)
             res.json({msg: "Deleted "})

@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const categoryController = require('../controllers/categoryController')
-const auth = require('../middleware/auth')
-const admin = require('../middleware/admin')
+const auth = require('../middlewares/auth')
+const admin = require('../middlewares/admin')
 
 
 router.route('/category')
