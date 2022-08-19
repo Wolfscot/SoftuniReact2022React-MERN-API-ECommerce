@@ -1,7 +1,7 @@
 import React, {createContext, useState, useEffect} from 'react'
-import ProductsAPI from './api/ProductsAPI'
-import UserAPI from './api/UserAPI'
-import CategoriesAPI from './api/CategoriesAPI'
+import ProductAPP from './app/ProductAPP'
+import UserAPP from './app/UserAPP'
+import CategoryAPP from './app/CategoryAPP'
 
 import axios from 'axios'
 
@@ -31,8 +31,10 @@ export const DataProvider = ({children}) =>{
 
     
     const state = {
-        token: [token, setToken]
-       
+        token: [token, setToken],
+        productAPP: ProductAPP(),
+        userAPP: UserAPP(token),
+        categoryAPP: CategoryAPP()
     }
 
     return (

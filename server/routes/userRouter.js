@@ -12,6 +12,6 @@ router.get('/logout', userController.logout)
 
 router.get('/refresh_token', userController.refreshToken)
 
-router.get('/infofor', auth,  userController.getUser)
+router.get('/info-for', auth,  userController.getUser)
 
 module.exports = router

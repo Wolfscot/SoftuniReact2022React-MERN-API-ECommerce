@@ -4,49 +4,85 @@ import MenuIcon from './icons/menu.svg'
 import CloseIcon from './icons/close.svg'
 import CartIcon from './icons/cart.svg'
 import {Link} from'react-router-dom'
+import axios from 'axios'
 
-function Header(){
-    const value = useContext(GlobalState)
+function Header() {
+    const state = useContext(GlobalState)
+    const [isLogged] = state.userAPI.isLogged
+    const [isAdmin] = state.userAPI.isAdmin
+    const [cart] = state.userAPI.cart
+    const [menu, setMenu] = useState(false)
+
+    const logoutUser = async () =>{
+        await axios.get('/user/logout')
+        
+        localStorage.removeItem('firstLogin')
+        
+        window.location.href = "/";
+    }
+
+    const adminRouter = () =>{
+        return(
+            <>
+                <li><Link to="/create_product">Create Product</Link></li>
+                <li><Link to="/category">Categories</Link></li>
+            </>
+        )
+    }
+
+    const loggedRouter = () =>{
+        return(
+            <>
+                <li><Link to="/history">History</Link></li>
+                <li><Link to="/" onClick={logoutUser}>Logout</Link></li>
+            </>
+        )
+    }
+
+
+    const styleMenu = {
+        left: menu ? 0 : "-100%"
+    }
+
     return (
         <header>
-        <div className="menu" onClick={() => setMenu(!menu)}>
-            <img src={MenuIcon} alt="" width="30" />
-        </div>
+            <div className="menu" onClick={() => setMenu(!menu)}>
+                <img src={MenuIcon} alt="" width="30" />
+            </div>
 
-        <div className="logo">
-            <h1>
-                <Link to="/">{isAdmin ? 'Admin' : 'Book Sells Online'}</Link>
-            </h1>
-        </div>
+            <div className="logo">
+                <h1>
+                    <Link to="/">{isAdmin ? 'Admin' : 'DevAT Shop'}</Link>
+                </h1>
+            </div>
 
-        <ul style={styleMenu}>
-            <li><Link to="/">{isAdmin ? 'Selling Books' : 'Products'}</Link></li>
+            <ul style={styleMenu}>
+                <li><Link to="/">{isAdmin ? 'Products' : 'Shop'}</Link></li>
 
-            {isAdmin && adminRouter()}
+                {isAdmin && adminRouter()}
+
+                {
+                    isLogged ? loggedRouter() : <li><Link to="/login">Login ✥ Register</Link></li>
+                }
+
+                <li onClick={() => setMenu(!menu)}>
+                    <img src={CloseIcon} alt="" width="30" className="menu" />
+                </li>
+
+            </ul>
 
             {
-                isLogged ? loggedRouter() : <li><Link to="/login">Login ✥ Register</Link></li>
+                isAdmin ? '' 
+                :<div className="cart-icon">
+                    <span>{cart.length}</span>
+                    <Link to="/cart">
+                        <img src={CartIcon} alt="" width="30" />
+                    </Link>
+                </div>
             }
-
-            <li onClick={() => setMenu(!menu)}>
-                <img src={CloseIcon} alt="" width="30" className="menu" />
-            </li>
-
-        </ul>
-
-        {
-            isAdmin ? '' 
-            :<div className="cart-icon">
-                <span>{cart.length}</span>
-                <Link to="/cart">
-                    <img src={CartIcon} alt="" width="30" />
-                </Link>
-            </div>
-        }
-        
-    </header>
+            
+        </header>
     )
 }
-
 
 export default Header
