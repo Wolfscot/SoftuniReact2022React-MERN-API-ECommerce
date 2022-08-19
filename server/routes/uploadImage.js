@@ -8,8 +8,8 @@ const fs = require('fs')
 
 cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,
-    api_key: process.env.CLOUD_API_KEY,
-    api_secret: process.env.CLOUD_API_SECRET
+    APP_key: process.env.CLOUD_APP_KEY,
+    APP_secret: process.env.CLOUD_APP_SECRET
 })
 
 // ADMINonly rights

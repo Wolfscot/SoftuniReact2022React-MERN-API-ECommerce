@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 
-function UserAPI(token) {
+function UserAPP(token) {
     const [isLogged, setIsLogged] = useState(false)
     const [isAdmin, setIsAdmin] = useState(false)
     const [cart, setCart] = useState([])
@@ -60,5 +60,5 @@ function UserAPI(token) {
     }
 }
 
-export default UserAPI
+export default UserAPP
  

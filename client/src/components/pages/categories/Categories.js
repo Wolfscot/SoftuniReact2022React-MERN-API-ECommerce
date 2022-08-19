@@ -4,10 +4,10 @@ import axios from 'axios'
 
 function Categories() {
     const state = useContext(GlobalState)
-    const [categories] = state.categoriesAPI.categories
+    const [categories] = state.categoryAPP.categories
     const [category, setCategory] = useState('')
     const [token] = state.token
-    const [callback, setCallback] = state.categoriesAPI.callback
+    const [callback, setCallback] = state.categoryAPP.callback
     const [onEdit, setOnEdit] = useState(false)
     const [id, setID] = useState('')
 
@@ -15,12 +15,12 @@ function Categories() {
         e.preventDefault()
         try {
             if(onEdit){
-                const res = await axios.put(`/api/category/${id}`, {name: category}, {
+                const res = await axios.put(`/app/category/${id}`, {name: category}, {
                     headers: {Authorization: token}
                 })
                 alert(res.data.msg)
             }else{
-                const res = await axios.post('/api/category', {name: category}, {
+                const res = await axios.post('/app/category', {name: category}, {
                     headers: {Authorization: token}
                 })
                 alert(res.data.msg)
@@ -42,7 +42,7 @@ function Categories() {
 
     const deleteCategory = async id =>{
         try {
-            const res = await axios.delete(`/api/category/${id}`, {
+            const res = await axios.delete(`/app/category/${id}`, {
                 headers: {Authorization: token}
             })
             alert(res.data.msg)

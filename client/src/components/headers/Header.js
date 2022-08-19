@@ -1,16 +1,16 @@
 import React, {useContext, useState} from 'react'
 import {GlobalState} from '../../GlobalState'
-import MenuIcon from './icons/menu.svg'
-import CloseIcon from './icons/close.svg'
-import CartIcon from './icons/cart.svg'
-import {Link} from'react-router-dom'
+import Menu from './icons/menu.svg'
+import Close from './icons/close.svg'
+import Cart from './icons/cart.svg'
+import {Link} from 'react-router-dom'
 import axios from 'axios'
 
 function Header() {
     const state = useContext(GlobalState)
-    const [isLogged] = state.userAPI.isLogged
-    const [isAdmin] = state.userAPI.isAdmin
-    const [cart] = state.userAPI.cart
+    const [isLogged] = state.userAPP.isLogged
+    const [isAdmin] = state.userAPP.isAdmin
+    const [cart] = state.userAPP.cart
     const [menu, setMenu] = useState(false)
 
     const logoutUser = async () =>{
@@ -47,7 +47,7 @@ function Header() {
     return (
         <header>
             <div className="menu" onClick={() => setMenu(!menu)}>
-                <img src={MenuIcon} alt="" width="30" />
+                <img src={Menu} alt="" width="30" />
             </div>
 
             <div className="logo">
@@ -66,7 +66,7 @@ function Header() {
                 }
 
                 <li onClick={() => setMenu(!menu)}>
-                    <img src={CloseIcon} alt="" width="30" className="menu" />
+                    <img src={Close} alt="" width="30" className="menu" />
                 </li>
 
             </ul>
@@ -76,7 +76,7 @@ function Header() {
                 :<div className="cart-icon">
                     <span>{cart.length}</span>
                     <Link to="/cart">
-                        <img src={CartIcon} alt="" width="30" />
+                        <img src={Cart} alt="" width="30" />
                     </Link>
                 </div>
             }

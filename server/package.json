@@ -1,5 +1,5 @@
 {
-  "name": "softunireact2022react-mern-api-ecommerce",
+  "name": "softunireact2022react-mern-APP-ecommerce",
   "version": "1.0.0",
   "description": "This project is for the retake exam of Softuni FrontEnd React",
   "main": "server.js",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Wolfscot/SoftuniReact2022React-MERN-API-ECommerce.git"
+    "url": "git+https://github.com/Wolfscot/SoftuniReact2022React-MERN-APP-ECommerce.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Wolfscot/SoftuniReact2022React-MERN-API-ECommerce/issues"
+    "url": "https://github.com/Wolfscot/SoftuniReact2022React-MERN-APP-ECommerce/issues"
   },
-  "homepage": "https://github.com/Wolfscot/SoftuniReact2022React-MERN-API-ECommerce#readme",
+  "homepage": "https://github.com/Wolfscot/SoftuniReact2022React-MERN-APP-ECommerce#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cloudinary": "^1.30.1",

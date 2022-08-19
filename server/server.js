@@ -18,12 +18,12 @@ app.use(fileUpload({
 // Routes
 
 app.use('/user', require('./routes/userRouter'))
-app.use('/api', require('./routes/categoryRouter'))
-app.use('/api', require('./routes/productRouter'))
-app.use('/api', require('./routes/productRouter'))
-app.use('/api', require('./routes/paymentRouter'))
+app.use('/APP', require('./routes/categoryRouter'))
+app.use('/APP', require('./routes/productRouter'))
+app.use('/APP', require('./routes/productRouter'))
+app.use('/APP', require('./routes/paymentRouter'))
 
-app.use('/api', require('./routes/uploadImage'))
+app.use('/APP', require('./routes/uploadImage'))
 
 
 // Connect to mongodb
