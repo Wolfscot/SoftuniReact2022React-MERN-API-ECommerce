@@ -18,12 +18,12 @@ app.use(fileUpload({
 // Routes
 
 app.use('/user', require('./routes/userRouter'))
-app.use('/APP', require('./routes/categoryRouter'))
-app.use('/APP', require('./routes/productRouter'))
-app.use('/APP', require('./routes/productRouter'))
-app.use('/APP', require('./routes/paymentRouter'))
+app.use('/app', require('./routes/categoryRouter'))
+app.use('/app', require('./routes/productRouter'))
+app.use('/app', require('./routes/productRouter'))
+app.use('/app', require('./routes/paymentRouter'))
 
-app.use('/APP', require('./routes/uploadImage'))
+app.use('/app', require('./routes/uploadImage'))
 
 
 // Connect to mongodb
@@ -40,7 +40,12 @@ mongoose.connect(URI, {
 })
 
 
-
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('client/build'))
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+    })
+}
 
 
 

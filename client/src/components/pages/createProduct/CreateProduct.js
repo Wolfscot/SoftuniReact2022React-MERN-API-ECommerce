@@ -17,7 +17,7 @@ const initialState = {
 function CreateProduct() {
     const state = useContext(GlobalState)
     const [product, setProduct] = useState(initialState)
-    const [categories] = state.categoriesAPP.categories
+    const [categories] = state.categoryAPP.categories
     const [images, setImages] = useState(false)
     const [loading, setLoading] = useState(false)
 
@@ -28,9 +28,9 @@ function CreateProduct() {
     const history = useNavigate()
     const param = useParams()
 
-    const [products] = state.productsAPP.products
+    const [products] = state.productAPP.products
     const [onEdit, setOnEdit] = useState(false)
-    const [callback, setCallback] = state.productsAPP.callback
+    const [callback, setCallback] = state.productAPP.callback
 
     useEffect(() => {
         if(param.id){
@@ -66,7 +66,7 @@ function CreateProduct() {
             formData.append('file', file)
 
             setLoading(true)
-            const res = await axios.post('/APP/upload', formData, {
+            const res = await axios.post('/app/upload', formData, {
                 headers: {'content-type': 'multipart/form-data', Authorization: token}
             })
             setLoading(false)
@@ -81,7 +81,7 @@ function CreateProduct() {
         try {
             if(!isAdmin) return alert("You're not an admin")
             setLoading(true)
-            await axios.post('/APP/destroy', {public_id: images.public_id}, {
+            await axios.post('/app/destroy', {public_id: images.public_id}, {
                 headers: {Authorization: token}
             })
             setLoading(false)
@@ -103,11 +103,11 @@ function CreateProduct() {
             if(!images) return alert("No Image Upload")
 
             if(onEdit){
-                await axios.put(`/APP/products/${product._id}`, {...product, images}, {
+                await axios.put(`/app/products/${product._id}`, {...product, images}, {
                     headers: {Authorization: token}
                 })
             }else{
-                await axios.post('/APP/products', {...product, images}, {
+                await axios.post('/app/products', {...product, images}, {
                     headers: {Authorization: token}
                 })
             }

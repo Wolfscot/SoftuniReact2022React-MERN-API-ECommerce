@@ -14,7 +14,7 @@ function OrderHistory() {
         if(token){
             const getHistory = async() =>{
                 if(isAdmin){
-                    const res = await axios.get('/APP/payment', {
+                    const res = await axios.get('/app/payment', {
                         headers: {Authorization: token}
                     })
                     setHistory(res.data)

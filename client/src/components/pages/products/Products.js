@@ -9,10 +9,10 @@ import LoadMore from './LoadMore'
 
 function Products() {
     const state = useContext(GlobalState)
-    const [products, setProducts] = state.productsAPP.products
+    const [products, setProducts] = state.productAPP.products
     const [isAdmin] = state.userAPP.isAdmin
     const [token] = state.token
-    const [callback, setCallback] = state.productsAPP.callback
+    const [callback, setCallback] = state.productAPP.callback
     const [loading, setLoading] = useState(false)
     const [isCheck, setIsCheck] = useState(false)
 
@@ -26,10 +26,10 @@ function Products() {
     const deleteProduct = async(id, public_id) => {
         try {
             setLoading(true)
-            const destroyImg = axios.post('/APP/destroy', {public_id},{
+            const destroyImg = axios.post('/app/destroy', {public_id},{
                 headers: {Authorization: token}
             })
-            const deleteProduct = axios.delete(`/APP/products/${id}`, {
+            const deleteProduct = axios.delete(`/app/products/${id}`, {
                 headers: {Authorization: token}
             })
 

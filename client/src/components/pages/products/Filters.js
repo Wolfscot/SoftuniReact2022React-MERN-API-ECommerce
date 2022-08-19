@@ -3,11 +3,11 @@ import {GlobalState} from '../../../GlobalState'
 
 function Filters() {
     const state = useContext(GlobalState)
-    const [categories] = state.categoriesAPP.categories
+    const [categories] = state.categoryAPP.categories
 
-    const [category, setCategory] = state.productsAPP.category
-    const [sort, setSort] = state.productsAPP.sort
-    const [search, setSearch] = state.productsAPP.search
+    const [category, setCategory] = state.productAPP.category
+    const [sort, setSort] = state.productAPP.sort
+    const [search, setSearch] = state.productAPP.search
 
 
     const handleCategory = e => {
